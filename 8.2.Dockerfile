@@ -23,6 +23,7 @@ RUN \
     redis \
     supervisor \
     poppler-utils \
+    npm \
   # elastic setup
   && rm -rf $ES_HOME/plugins \
     && mkdir -p $ES_HOME/tmp $ES_HOME/data $ES_HOME/logs $ES_HOME/plugins $ES_HOME/config/scripts \
