@@ -30,12 +30,12 @@ jobs:
         with:
           push: true
           file: 8.2.Dockerfile
-          tags: adhocore/lemp:8.2,adhocore/lemp:latest
+          tags: achillesjr/asj-lemp:8.2,achillesjr/asj-lemp:latest
           platforms: linux/amd64,linux/arm64
 
       - name: "[8.2] Test"
         run: |
-          docker run --name lemp82 adhocore/lemp:8.2 &
+          docker run --name lemp82 achillesjr/asj-lemp:8.2 &
           sleep 60
           docker exec $(docker ps -q -f 'name=lemp82') netstat -ant | grep -E '0:11300|0:11211|1:9300|1:9200|::9000|0:6379|1:5432|0:3306|0:88|0:80|0:25'
           PORTS=$(docker exec $(docker ps -q -f 'name=lemp82') netstat -ant | grep -E '0:11300|0:11211|1:9300|1:9200|::9000|0:6379|1:5432|0:3306|0:88|0:80|0:25' | wc -l | xargs)
